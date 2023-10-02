@@ -1,12 +1,13 @@
 import React from 'react'
-import {Switch, Route, Redirect} from 'react-router-dom'
-import {LinksPage} from './pages/LinksPage'
-import {CreatePage} from './pages/CreatePage'
-import {DetailPage} from './pages/DetailPage'
-import {AuthPage} from './pages/AuthPage'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import { LinksPage } from './pages/LinksPage'
+import { CreatePage } from './pages/CreatePage'
+import { DetailPage } from './pages/DetailPage'
+import { AuthPage } from './pages/AuthPage'
 import { Rooms } from './components/LinkCard'
 import { Hotelinfo } from './components/LinksList'
 import { Footer } from './components/Bottom'
+import Comments from './components/comments/Comments'
 
 export const useRoutes = isAuthenticated => {
   if (isAuthenticated) {
@@ -20,6 +21,10 @@ export const useRoutes = isAuthenticated => {
           <CreatePage />
           <Hotelinfo />
           <Rooms />
+          <Comments
+            commentsUrl="http://localhost:3004/comments"
+            currentUserId="1"
+          />
           <Footer />
         </Route>
         <Route path="/detail/:id">
